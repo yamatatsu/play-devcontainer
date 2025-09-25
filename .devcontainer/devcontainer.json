@@ -1,0 +1,46 @@
+// Strategy
+// - Use Dev Container Features if possible
+// - Use docker-compose to launch services
+// - Use Dockerfile if it needs to be cached
+// - Use setup.sh to run commands that don't need to be cached
+// - Use setup.personal.sh for personal setup such as dotfiles
+{
+  "name": "play-dev-container-nx-hono",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+	"workspaceFolder": "/workspace/main",
+  "remoteUser": "vscode",
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "Prisma.prisma",
+        "streetsidesoftware.code-spell-checker",
+        "vitest.explorer"
+      ],
+      "settings": {
+        "biome.enabled": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "biomejs.biome",
+        "editor.codeActionsOnSave": {
+          "source.organizeImports.biome": "explicit",
+          "quickfix.biome": "explicit"
+        }
+      }
+    }
+  },
+
+  "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+
+  "forwardPorts": [3000, 8000, 5432],
+}
