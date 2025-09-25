@@ -1,0 +1,12 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "check": {
+      "dependsOn": ["^check"]
+    },
+    "//#format": {},
+    "//#check:biome": {},
+    "//#check:spell": {},
+    "//#fix:biome": {}
+  }
+}
