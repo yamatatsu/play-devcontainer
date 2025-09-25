@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "lib": ["es2023"],
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["**/*.test.ts", "**/__tests__/**/*"]
+}

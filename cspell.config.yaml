@@ -5,7 +5,9 @@ ignorePaths:
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - chax-at
   - anthropics
+  - dotenvx
   - mydb
 ignoreWords: []
 import: []

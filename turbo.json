@@ -1,8 +1,27 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": []
+    },
+    "test:run": {
+      "dependsOn": []
+    },
+    "build": {
+      "dependsOn": []
+    },
+    "clean": {
+      "cache": false
+    },
     "check": {
       "dependsOn": ["^check"]
+    },
+    "check:type": {
+      "inputs": ["**/*.ts", "**/*.tsx"]
     },
     "//#format": {},
     "//#check:biome": {},

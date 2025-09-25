@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "format": "biome format --write",
-    "check": "turbo run check check:biome check:spell",
+    "check": "turbo run check check:biome check:spell check:type",
     "check:biome": "biome check .",
     "check:spell": "cspell lint . --gitignore --report=simple --dot",
     "fix:biome": "biome format . --write",

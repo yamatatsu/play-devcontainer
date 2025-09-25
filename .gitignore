@@ -1,4 +1,5 @@
 .devcontainer/setup.personal.sh
 node_modules
+dist
 .cspellcache
 .turbo
