@@ -1,0 +1,11 @@
+version: "0.2"
+ignorePaths:
+  - .git
+  - pnpm-lock.yaml
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - anthropics
+  - mydb
+ignoreWords: []
+import: []

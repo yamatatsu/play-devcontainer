@@ -8,7 +8,7 @@
   "name": "play-dev-container-nx-hono",
   "dockerComposeFile": "docker-compose.yml",
   "service": "dev",
-	"workspaceFolder": "/workspace/main",
+  "workspaceFolder": "/workspace/main",
   "remoteUser": "vscode",
 
   "features": {
@@ -42,5 +42,5 @@
 
   "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
 
-  "forwardPorts": [3000, 8000, 5432],
+  "forwardPorts": [3000, 8000, 5432]
 }
