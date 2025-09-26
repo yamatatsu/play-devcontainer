@@ -1,0 +1,10 @@
+services:
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+      target: runner
+    restart: always
+    ports:
+      - 3000:3000
