@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider   = "prisma-client"
+  engineType = "client"
+  output     = "../src/generated/prisma"
+}
+
+model Tasks {
+  userId      String    @map("user_id")
+  taskId      String    @default(uuid()) @map("task_id")
+  content     String    @map("content") @db.VarChar(1000)
+  completedAt DateTime? @map("completed_at")
+  createdAt   DateTime  @map("created_at")
+  updatedAt   DateTime  @map("updated_at")
+
+  @@id([userId, taskId])
+  @@map("tasks")
+}

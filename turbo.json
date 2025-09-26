@@ -14,6 +14,26 @@
     "build": {
       "dependsOn": []
     },
+    "db:migrate:dev": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
+      "cache": false,
+      "persistent": true
+    },
+    "db:migrate:deploy": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
+      "cache": false
+    },
+    "db:seed": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
+      "cache": false
+    },
+    "db:studio": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
+      "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
     "clean": {
       "cache": false
     },
@@ -22,6 +42,10 @@
     },
     "check:type": {
       "inputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "prisma": {
+      "dependsOn": [],
+      "cache": false
     },
     "//#format": {},
     "//#check:biome": {},

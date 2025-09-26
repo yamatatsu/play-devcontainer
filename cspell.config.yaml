@@ -5,8 +5,9 @@ ignorePaths:
 dictionaryDefinitions: []
 dictionaries: []
 words:
-  - chax-at
   - anthropics
+  - chax-at
+  - DBNAME
   - dotenvx
   - mydb
 ignoreWords: []
