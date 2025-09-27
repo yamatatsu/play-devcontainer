@@ -1,5 +1,5 @@
 {
-  "name": "play-dev-container-nx-hono",
+  "name": "play-devcontainer",
   "license": "MIT",
   "private": true,
   "workspaces": [
