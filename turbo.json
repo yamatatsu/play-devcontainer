@@ -2,13 +2,17 @@
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
     "dev": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "cache": false,
       "persistent": true
     },
     "test": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
+      "inputs": ["*"],
       "dependsOn": []
     },
     "test:run": {
+      "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "dependsOn": []
     },
     "build": {

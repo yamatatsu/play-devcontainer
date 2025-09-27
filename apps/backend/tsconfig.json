@@ -19,7 +19,8 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "dist"]
 }
