@@ -8,8 +8,8 @@ echo "👤 Current user:"
 whoami
 
 
-# echo "📦 Installing dependencies..."
-# npm install
+echo "📦 Installing dependencies..."
+npm ci
 
 
 # init and execute personal setup script
