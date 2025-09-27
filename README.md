@@ -31,7 +31,9 @@ This project is a development environment using DevContainer with the following 
 
 ### Prerequisites
 
-- Docker (The author uses colima)
+- Docker
+  - The author uses Rancher Desktop
+  - colima and finch were unstable
 - Visual Studio Code
 - Dev Containers extension
 

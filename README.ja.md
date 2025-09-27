@@ -31,7 +31,9 @@ Turborepoを使用したmonorepoプロジェクトのサンプル実装です。
 
 ### 前提条件
 
-- Docker (作者が使っているのはcolima)
+- Docker
+  - 作者が使っているのはrancher desktop
+  - colima, finchでは動作が不安定だった
 - Visual Studio Code
 - Dev Containers拡張機能
 
