@@ -1,59 +1,76 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
+    // Start development servers (backend API with hot reload)
     "dev": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "cache": false,
       "persistent": true
     },
+    // Run tests with Vitest in watch mode
     "test": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "inputs": ["*"],
       "dependsOn": []
     },
+    // Run tests once and exit
     "test:run": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "dependsOn": []
     },
+    // Build TypeScript to JavaScript
     "build": {
       "dependsOn": []
     },
+    // Apply database migrations in development with schema changes
     "db:migrate:dev": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "cache": false,
       "persistent": true
     },
+    // Apply database migrations in production without schema changes
     "db:migrate:deploy": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "cache": false
     },
+    // Seed database with initial data
     "db:seed": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "cache": false
     },
+    // Open Prisma Studio GUI for database management
     "db:studio": {
       "env": ["DB_USERNAME", "DB_PASSWORD", "DB_HOST", "DB_DBNAME"],
       "cache": false
     },
+    // Generate Prisma client from schema
     "db:generate": {
       "cache": false
     },
+    // Remove build artifacts and generated files
     "clean": {
       "cache": false
     },
+    // Run all checks in packages
     "check": {
       "dependsOn": ["^check"]
     },
+    // TypeScript type checking
     "check:type": {
       "inputs": ["**/*.ts", "**/*.tsx"]
     },
+    // Execute Prisma CLI commands
     "prisma": {
       "dependsOn": [],
       "cache": false
     },
+    // Format code with Biome (root-level only)
     "//#format": {},
+    // Check code style with Biome (root-level only)
     "//#check:biome": {},
+    // Spell check with cspell (root-level only)
     "//#check:spell": {},
+    // Fix code style issues with Biome (root-level only)
     "//#fix:biome": {}
   }
 }
