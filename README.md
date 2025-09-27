@@ -1,4 +1,4 @@
-# Play DevContainer
+# Play DevContainer（[日本語](./README.ja.md)）
 
 A sample implementation of a monorepo project using Turborepo.
 
