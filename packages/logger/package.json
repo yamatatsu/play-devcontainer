@@ -10,7 +10,7 @@
     "check:type": "tsc --noEmit"
   },
   "dependencies": {
-    "pino": "9.11.0"
+    "pino": "9.13.1"
   },
   "devDependencies": {
     "@types/node": "24.5.2",
