@@ -1,3 +1,5 @@
+import { getPrisma } from "@packages/db";
+import logger from "@packages/logger";
 import type {
   Task,
   TaskCreateCommand,
@@ -5,8 +7,6 @@ import type {
   TaskUpsertCommand,
 } from "../domain/model/task";
 import type { User } from "../domain/model/user";
-import logger from "@packages/logger";
-import { getPrisma } from "@packages/db";
 import { getMetadata, isNotFoundError } from "./utils";
 
 export async function createTask(command: TaskCreateCommand): Promise<void> {
