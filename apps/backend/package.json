@@ -1,8 +1,8 @@
 {
-  "name": "backend",
+  "name": "@apps/backend",
   "version": "0.0.0",
   "private": true,
-  "types": "dist/app.d.ts",
+  "types": "dist/src/app.d.ts",
   "scripts": {
     "dev": "tsx watch src/index.ts | pino-pretty",
     "start": "tsx src/index.ts",
