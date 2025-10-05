@@ -122,9 +122,14 @@ npm workspaceはpnpm workspaceと比べて非力である。
 
 ## 課題
 
-- GitHub認証: 現在は`gh auth login`を使っているが、より権限の狭い認証状態を得る方法を探している。
-- vscodeでの挙動が不安定（git, biome, typecheckなどが無効になる）
+- [ ] GitHub認証: 現在は`gh auth login`を使っているが、より権限の狭い認証状態を得る方法を探している。
+- [x] vscodeでの挙動が不安定（git, biome, typecheckなどが無効になる）
   - エラー: `Remote Extension host terminated unexpectedly 3 times within the last 5 minutes.`
+  - colimaをやめて、rancher desktopやOrbStackにしたら安定した
+- [ ] hono RPCでresponse型が推論されない
+- [ ] backend APIでJWT bearer tokenを検証する
+- [ ] frontendのことをREADMEに書く
+
 
 ## 📄 ライセンス
 
