@@ -20,7 +20,11 @@
     },
     // Build TypeScript to JavaScript
     "build": {
-      "dependsOn": []
+      "dependsOn": ["^clean"],
+      "outputs": ["dist/**"]
+    },
+    "@apps/frontend#build": {
+      "dependsOn": ["@apps/backend#build"]
     },
     // Apply database migrations in development with schema changes
     "db:migrate:dev": {

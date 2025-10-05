@@ -44,6 +44,7 @@
   "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
 
   "forwardPorts": [
+    5173, // frontend dev server
     3000, // backend server
     5432, // PostgreSQL
     5555 // prisma studio

@@ -1,7 +1,10 @@
 version: "0.2"
 ignorePaths:
   - .git
+  - .gitignore
   - pnpm-lock.yaml
+  - "**/generated"
+  - "**/prisma/migrations"
 dictionaryDefinitions: []
 dictionaries: []
 words:
@@ -9,6 +12,10 @@ words:
   - chax-at
   - DBNAME
   - dotenvx
+  - Entra
+  - Msal
   - mydb
+  - VITE
+  - Yamatatsu
 ignoreWords: []
 import: []
