@@ -1,7 +1,7 @@
-import { randomUUID } from "node:crypto";
-import { runWithRequestId } from "@packages/logger";
 import { Hono } from "hono";
-import { cors } from "hono/cors";
+import { bearerAuth } from "./middlewares/bearerAuth";
+import { cors } from "./middlewares/cors";
+import { logger } from "./middlewares/logger";
 import rootRoutes from "./routes/root";
 import tasksDelete from "./routes/tasks/delete";
 import tasksGet from "./routes/tasks/get";
@@ -10,11 +10,12 @@ import tasksPost from "./routes/tasks/post";
 import tasksPut from "./routes/tasks/put";
 
 export const app = new Hono()
-  .use("/*", async (_, next) => {
-    await runWithRequestId(randomUUID(), next);
-  })
-  .use("*", cors({ origin: "http://localhost:5173" }))
+  // health check endpoint
   .route("/", rootRoutes)
+  // middlewares
+  .use("*", logger)
+  .use("*", cors)
+  .use("*", bearerAuth)
   // Task
   .route("/", tasksList)
   .route("/", tasksPost)
