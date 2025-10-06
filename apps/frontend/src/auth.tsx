@@ -1,10 +1,27 @@
 import {
   InteractionRequiredAuthError,
+  InteractionType,
   PublicClientApplication,
   type RedirectRequest,
   type SilentRequest,
 } from "@azure/msal-browser";
-import { MsalProvider } from "@azure/msal-react";
+import {
+  type MsalAuthenticationResult,
+  MsalAuthenticationTemplate,
+  MsalProvider,
+} from "@azure/msal-react";
+
+const SCOPES = [
+  "openid",
+  "profile",
+  "email",
+  /**
+   * We can configure the scopes in the Azure portal.
+   * @see https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope
+   * TODO: need to use more fine-grained scopes instead of "All.All".
+   */
+  "api://694b37ed-46b7-422a-aacb-c3ce12277475/All.All",
+];
 
 /**
  * singleton
@@ -21,6 +38,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return <MsalProvider instance={pca}>{children}</MsalProvider>;
 }
 
+export function AuthenticationTemplate({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <MsalAuthenticationTemplate
+      interactionType={InteractionType.Redirect}
+      authenticationRequest={{
+        scopes: SCOPES,
+      }}
+      errorComponent={ErrorComponent}
+      loadingComponent={LoadingComponent}
+    >
+      {children}
+    </MsalAuthenticationTemplate>
+  );
+}
+function ErrorComponent({ error }: MsalAuthenticationResult) {
+  return <p>An Error Occurred: {error?.errorMessage}</p>;
+}
+function LoadingComponent() {
+  return <p>Authentication in progress...</p>;
+}
+
 export const logout = async () => {
   await pca.logoutRedirect({
     // TODO: This is not working... We need to redirect to current page after logout.
@@ -34,17 +76,7 @@ export const logout = async () => {
 export const acquireToken = async (): Promise<string> => {
   const accounts = pca.getAllAccounts();
   const request = {
-    scopes: [
-      "openid",
-      "profile",
-      "email",
-      /**
-       * We can configure the scopes in the Azure portal.
-       * @see https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope
-       * TODO: need to use more fine-grained scopes instead of "All.All".
-       */
-      "api://694b37ed-46b7-422a-aacb-c3ce12277475/All.All",
-    ],
+    scopes: SCOPES,
     account: accounts[0],
   } satisfies Pick<
     SilentRequest,

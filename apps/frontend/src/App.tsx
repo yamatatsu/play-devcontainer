@@ -1,10 +1,5 @@
-import { InteractionType } from "@azure/msal-browser";
-import {
-  type MsalAuthenticationResult,
-  MsalAuthenticationTemplate,
-} from "@azure/msal-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { AuthProvider, logout } from "./auth";
+import { AuthenticationTemplate, AuthProvider, logout } from "./auth";
 import Tasks from "./Tasks";
 
 const queryClient = new QueryClient({
@@ -24,34 +19,14 @@ export default function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <main>
-          <MsalAuthenticationTemplate
-            interactionType={InteractionType.Redirect}
-            authenticationRequest={{
-              scopes: [
-                "openid",
-                "profile",
-                "email",
-                "api://694b37ed-46b7-422a-aacb-c3ce12277475/All.All",
-              ],
-            }}
-            errorComponent={ErrorComponent}
-            loadingComponent={LoadingComponent}
-          >
+          <AuthenticationTemplate>
             <Tasks />
             <LogoutButton />
-          </MsalAuthenticationTemplate>
+          </AuthenticationTemplate>
         </main>
       </QueryClientProvider>
     </AuthProvider>
   );
-}
-
-function ErrorComponent({ error }: MsalAuthenticationResult) {
-  return <p>An Error Occurred: {error?.errorMessage}</p>;
-}
-
-function LoadingComponent() {
-  return <p>Authentication in progress...</p>;
 }
 
 function LogoutButton() {
