@@ -34,7 +34,17 @@ export const logout = async () => {
 export const acquireToken = async (): Promise<string> => {
   const accounts = pca.getAllAccounts();
   const request = {
-    scopes: ["openid", "profile"],
+    scopes: [
+      "openid",
+      "profile",
+      "email",
+      /**
+       * We can configure the scopes in the Azure portal.
+       * @see https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope
+       * TODO: need to use more fine-grained scopes instead of "All.All".
+       */
+      "api://694b37ed-46b7-422a-aacb-c3ce12277475/All.All",
+    ],
     account: accounts[0],
   } satisfies Pick<
     SilentRequest,

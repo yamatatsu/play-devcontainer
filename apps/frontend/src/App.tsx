@@ -27,7 +27,12 @@ export default function App() {
           <MsalAuthenticationTemplate
             interactionType={InteractionType.Redirect}
             authenticationRequest={{
-              scopes: ["openid", "profile"],
+              scopes: [
+                "openid",
+                "profile",
+                "email",
+                "api://694b37ed-46b7-422a-aacb-c3ce12277475/All.All",
+              ],
             }}
             errorComponent={ErrorComponent}
             loadingComponent={LoadingComponent}
