@@ -16,18 +16,15 @@ export default new Hono().get("/tasks", async (c) => {
 
   const result = await findManyTasks(user);
   if (!result) {
-    return c.newResponse(null, 404);
+    return c.json([], 404);
   }
 
-  const response = result.map(
-    (task) =>
-      ({
-        taskId: task.taskId,
-        content: task.content,
-        completedAt: task.completedAt,
-        metadata: task.metadata,
-      }) satisfies Response[number],
-  );
+  const response: Response = result.map((task) => ({
+    taskId: task.taskId,
+    content: task.content,
+    completedAt: task.completedAt,
+    metadata: task.metadata,
+  }));
 
   return c.json(response, 200);
 });

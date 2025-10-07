@@ -9,7 +9,7 @@ import type {
 import type { User } from "../domain/model/user";
 import { getMetadata, isNotFoundError } from "./utils";
 
-export async function createTask(command: TaskCreateCommand): Promise<void> {
+export async function createTask(command: TaskCreateCommand): Promise<Task> {
   logger.info({ command }, "タスクの作成を開始");
   const prisma = getPrisma();
 
@@ -23,6 +23,14 @@ export async function createTask(command: TaskCreateCommand): Promise<void> {
   });
 
   logger.info({ result }, "タスクの作成が完了");
+
+  return {
+    userId: result.userId,
+    taskId: result.taskId,
+    content: result.content,
+    completedAt: result.completedAt,
+    metadata: getMetadata(result),
+  };
 }
 
 export async function upsertTask(command: TaskUpsertCommand): Promise<void> {

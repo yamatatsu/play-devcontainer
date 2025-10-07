@@ -15,9 +15,10 @@ export default new Hono().post(
     const user = { userId: "test-user" };
     const now = new Date();
 
-    await createTask(taskCreateCommand(user, input.content, now));
+    const newTask = await createTask(
+      taskCreateCommand(user, input.content, now),
+    );
 
-    // TODO: MDNに習って新しいリソースを返す https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/201
-    return c.newResponse(null, 201);
+    return c.json(newTask, 201);
   },
 );

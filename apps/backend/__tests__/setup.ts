@@ -18,8 +18,6 @@ declare global {
 }
 
 vi.doMock("@packages/db", () => {
-  console.log("aaa", global.testPrismaClient);
-
   return {
     getPrisma: () => global.testPrismaClient,
   };

@@ -24,6 +24,6 @@ export default new Hono().put(
       taskUpsertCommand(user, taskId, input.content, input.completedAt, now),
     );
 
-    return c.newResponse(null, 204);
+    return c.body(null, 204);
   },
 );

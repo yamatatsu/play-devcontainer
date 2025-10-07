@@ -16,7 +16,16 @@ test("happy path", async () => {
 
   // THEN
   expect(res.status).toEqual(201);
-  expect(res.body).toBeNull();
+  expect(await res.json()).toEqual({
+    userId: "test-user",
+    taskId: expect.any(String),
+    content: "test-content",
+    completedAt: null,
+    metadata: {
+      createdAt: expect.any(String),
+      updatedAt: expect.any(String),
+    },
+  });
 
   const tasks = await testPrismaClient.tasks.findMany({
     where: {

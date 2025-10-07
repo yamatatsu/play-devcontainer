@@ -50,5 +50,5 @@ test("response 404 when the task is not found", async () => {
 
   // THEN
   expect(res.status).toEqual(404);
-  expect(res.body).toEqual(null);
+  expect(await res.json()).toEqual({ message: "Task not found" });
 });

@@ -23,7 +23,7 @@ export default new Hono().get(
 
     const result = await findTask(taskGetCommand(user, taskId));
     if (!result) {
-      return c.newResponse(null, 404);
+      return c.json({ message: "Task not found" }, 404);
     }
 
     const response = {

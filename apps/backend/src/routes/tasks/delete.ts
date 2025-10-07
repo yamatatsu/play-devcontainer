@@ -18,9 +18,9 @@ export default new Hono().delete(
 
     const { count } = await deleteTask(taskGetCommand(user, taskId));
     if (count === 0) {
-      return c.newResponse(null, 404);
+      return c.json({ message: "Task not found" }, 404);
     }
 
-    return c.newResponse(null, 204);
+    return c.body(null, 204);
   },
 );
