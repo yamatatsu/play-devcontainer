@@ -123,12 +123,17 @@ npm workspaceはpnpm workspaceと比べて非力である。
 ## 課題
 
 - [ ] GitHub認証: 現在は`gh auth login`を使っているが、より権限の狭い認証状態を得る方法を探している。
+  - PAT(Fine-grained)を使う
+  - READMEに発行方法を記載し、.envに設定するようにする。
+- [ ] alt npmを考える
+  - pnpmを避けてnpmを使い始めたが、bunなどはどうか？
 - [x] vscodeでの挙動が不安定（git, biome, typecheckなどが無効になる）
   - エラー: `Remote Extension host terminated unexpectedly 3 times within the last 5 minutes.`
   - colimaをやめて、rancher desktopやOrbStackにしたら安定した
-- [ ] hono RPCでresponse型が推論されない
-- [ ] backend APIでJWT bearer tokenを検証する
+- [x] hono RPCでresponse型が推論されない
+- [x] backend APIでJWT bearer tokenを検証する
 - [ ] frontendのことをREADMEに書く
+- [ ] バックエンド、FPなのかOOPなのかが中途半端。neverthrowを使ってFPで行くのか、OOPで行くのか決定する。
 
 
 ## 📄 ライセンス
