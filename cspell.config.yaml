@@ -2,6 +2,7 @@ version: "0.2"
 ignorePaths:
   - .git
   - .gitignore
+  - .specify
   - pnpm-lock.yaml
   - "**/generated"
   - "**/prisma/migrations"
