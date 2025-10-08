@@ -131,13 +131,15 @@ npm workspaceはpnpm workspaceと比べて非力である。
 ## 課題
 - [ ] alt npmを考える
   - pnpmを避けてnpmを使い始めたが、bunなどはどうか？
+- [ ] frontendのことをREADMEに書く
+- [ ] バックエンド、FPなのかOOPなのかが中途半端。neverthrowを使ってFPで行くのか、OOPで行くのか決定する。
 - [x] vscodeでの挙動が不安定（git, biome, typecheckなどが無効になる）
   - エラー: `Remote Extension host terminated unexpectedly 3 times within the last 5 minutes.`
   - colimaをやめて、rancher desktopやOrbStackにしたら安定した
 - [x] hono RPCでresponse型が推論されない
 - [x] backend APIでJWT bearer tokenを検証する
-- [ ] frontendのことをREADMEに書く
-- [ ] バックエンド、FPなのかOOPなのかが中途半端。neverthrowを使ってFPで行くのか、OOPで行くのか決定する。
+- [x] githubクレデンシャルの権限をこのrepositoryに限定する
+- [x] setup claude code with spec-kit
 
 
 ## 📄 ライセンス
