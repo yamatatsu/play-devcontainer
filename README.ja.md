@@ -60,9 +60,17 @@ Turborepoを使用したmonorepoプロジェクトのサンプル実装です。
    ```
 
 5. GitHubの認証
-   ```bash
-   gh auth login
-   ```
+   - GitHub Fine-grained Personal Access Tokenを生成: https://github.com/settings/personal-access-tokens/new
+     - Expiration: 適切な値を設定（`No expiration`以外）
+     - Repository access: [Only select repositories] - このリポジトリを選択
+     - Permissions:
+       - [Actions]: Read and write
+       - [Contents]: Read and write
+       - [Issues]: Read and write
+       - [Pull requests]: Read and write
+   - `.devcontainer/.env.example`を`.devcontainer/.env`にコピー
+   - 生成したトークンを`.devcontainer/.env`の`GH_TOKEN`に設定
+   - Dev Containerを再ビルド
 
 ## 🔧 個人設定 (setup.personal.sh)
 
@@ -121,10 +129,6 @@ npm workspaceはpnpm workspaceと比べて非力である。
 これを解決するためにTurborepoを採用した。
 
 ## 課題
-
-- [ ] GitHub認証: 現在は`gh auth login`を使っているが、より権限の狭い認証状態を得る方法を探している。
-  - PAT(Fine-grained)を使う
-  - READMEに発行方法を記載し、.envに設定するようにする。
 - [ ] alt npmを考える
   - pnpmを避けてnpmを使い始めたが、bunなどはどうか？
 - [x] vscodeでの挙動が不安定（git, biome, typecheckなどが無効になる）

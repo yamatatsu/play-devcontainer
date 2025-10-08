@@ -60,9 +60,17 @@ This project is a development environment using DevContainer with the following 
    ```
 
 5. GitHub authentication
-   ```bash
-   gh auth login
-   ```
+   - Generate a GitHub Fine-grained Personal Access Token at https://github.com/settings/personal-access-tokens/new
+     - Expiration: Set an appropriate value (excluding `No expiration`)
+     - Repository access: [Only select repositories] - select this repository
+     - Permissions:
+       - [Actions]: Read and write
+       - [Contents]: Read and write
+       - [Issues]: Read and write
+       - [Pull requests]: Read and write
+   - Copy `.devcontainer/.env.example` to `.devcontainer/.env`
+   - Set the generated token to `GH_TOKEN` in `.devcontainer/.env`
+   - Rebuild the Dev Container
 
 ## 🔧 Personal Configuration (setup.personal.sh)
 
@@ -121,8 +129,6 @@ npm workspace is less powerful compared to pnpm workspace:
 We adopted Turborepo to solve these issues.
 
 ## Issues
-
-- GitHub Authentication: Currently using `gh auth login`, but looking for a way to obtain authentication with narrower permissions.
 - Unstable behavior in VSCode (git, biome, typecheck, etc. become disabled)
   - Error: `Remote Extension host terminated unexpectedly 3 times within the last 5 minutes.`
 
