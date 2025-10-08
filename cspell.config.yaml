@@ -4,6 +4,7 @@ ignorePaths:
   - .gitignore
   - .specify
   - pnpm-lock.yaml
+  - docs/ADR
   - "**/generated"
   - "**/prisma/migrations"
 dictionaryDefinitions: []

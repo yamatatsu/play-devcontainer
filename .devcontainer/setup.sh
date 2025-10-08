@@ -29,6 +29,9 @@ if [ ! -f ".devcontainer/setup.personal.sh" ]; then
 set -e
 
 # Your personal setup steps here
+
+# Use this setting to prevent generating core dump files in root directory
+# echo 'ulimit -c 0' >> ~/.zshrc
 EOF
   chmod +x .devcontainer/setup.personal.sh
 fi
